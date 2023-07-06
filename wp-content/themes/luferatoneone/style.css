@@ -1,0 +1,15 @@
+/*
+Theme name: LuferatOneOne
+Theme URI: https://github.com/Luferat/Wordtrecos
+Author: André Luferat
+Author URI: https://github.com/Luferat
+Description: Tema modelo para WordPress.
+Version: 0.1
+License: MIT License
+License URI: https://opensource.org/license/mit/
+Tags: Básico, branco, simples.
+*/
+
+body {
+    background-color: aquamarine;
+}
