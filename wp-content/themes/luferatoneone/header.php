@@ -14,19 +14,12 @@
     <div id="wrap">
         <header>
             <a href="<?php echo esc_url(home_url('/')) ?>">
-                <img src="<?php echo get_template_directory_uri() ?>/assets/felogo.png" alt="Logotipo de <?php bloginfo('name') ?>">
-                <h1 style="display:none"><?php bloginfo('name') ?></h1>
-                <small style="display:none"><?php bloginfo('description') ?></small>
+                <img style="width:80px" src="<?php echo get_template_directory_uri() ?>/assets/frontendeiroslogo.png" alt="Logotipo de <?php bloginfo('name') ?>">
+                <h1><?php bloginfo('name') ?></h1>
+                <small><?php bloginfo('description') ?></small>
             </a>
+            <p><?php get_search_form(array('placeholder' => 'Procurar...')); ?></p>
         </header>
         <nav>
-            <?php
-            wp_nav_menu(
-                array(
-                    'theme_location' => 'main-menu',
-                    'container' => false,
-                    'menu_class' => 'menu'
-                )
-            )
-            ?>
+            <?php wp_nav_menu(array('container' => false)) ?>
         </nav>

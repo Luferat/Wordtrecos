@@ -1,29 +1,28 @@
 <!--
     Exibe todos os posts do blog.
--->    
+-->
 
 <?php get_header() ?>
 
 <main>
-
     <section>
         <?php
+        $paged = (get_query_var('paged')) ? get_query_var('paged') : 1; // Obtém o número da página atual
+
         $args = array(
             'post_type' => 'post',
-            'posts_per_page' => 5
+            'paged' => $paged
         );
         $recent_posts = new WP_Query($args);
-
         if ($recent_posts->have_posts()) :
             while ($recent_posts->have_posts()) :
                 $recent_posts->the_post();
         ?>
-                <h3><a href="<?php the_permalink(); ?>"><?php the_title() ?></a></h3>
+                <?php if (has_post_thumbnail()) {
+                    the_post_thumbnail();
+                } ?>
 
-                <?php if (has_post_thumbnail($post->ID)) : ?>
-                    <?php $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'single-post-thumbnail'); ?>
-                    <img src="<?php echo $image[0]; ?>')">
-                <?php endif; ?>
+                <h3><a href="<?php the_permalink(); ?>"><?php the_title() ?></a></h3>
 
                 <div>
                     Em <?php the_date() ?> por <?php the_author_posts_link() ?>.<br>
@@ -35,8 +34,16 @@
                 </div>
         <?php
             endwhile;
+
+            // Paginação
+            the_posts_pagination(array(
+                'prev_text' => 'Anterior',
+                'next_text' => 'Próximo'
+            ));
+
         endif;
         wp_reset_postdata();
+
         ?>
     </section>
 
