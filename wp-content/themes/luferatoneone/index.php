@@ -66,6 +66,9 @@
             ?>
         </ul>
 
+        <?php dynamic_sidebar('home_aside_1'); ?>
+        <?php dynamic_sidebar('home_aside_2'); ?>
+
     </aside>
 </main>
 
