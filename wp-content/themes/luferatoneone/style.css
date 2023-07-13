@@ -10,6 +10,7 @@ License URI: https://opensource.org/license/mit/
 Tags: Básico, branco, simples.
 */
 
-body {
-    background-color: aquamarine;
+html, body {
+    font-family: monospace;
+    font-size: 16px;
 }

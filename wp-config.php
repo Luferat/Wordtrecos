@@ -1,4 +1,5 @@
 <?php
+
 /**
  * As configurações básicas do WordPress
  *
@@ -20,6 +21,8 @@
 
 // ** Configurações do banco de dados - Você pode pegar estas informações com o serviço de hospedagem ** //
 /** O nome do banco de dados do WordPress */
+define('WP_CACHE', true);
+define( 'WPCACHEHOME', 'C:\Users\andre.ataide\Luferat\htdocs\wp\wp-content\plugins\wp-super-cache/' );
 define( 'DB_NAME', 'wordtrecos' );
 
 /** Usuário do banco de dados MySQL */
