@@ -18,20 +18,23 @@
             while ($recent_posts->have_posts()) :
                 $recent_posts->the_post();
         ?>
-                <?php if (has_post_thumbnail()) {
-                    the_post_thumbnail();
-                } ?>
 
-                <h3><a href="<?php the_permalink(); ?>"><?php the_title() ?></a></h3>
+                <div id="post-<?php echo get_the_ID() ?>">
+                    <?php if (has_post_thumbnail())
+                        the_post_thumbnail('thumbnail', ["alt" => get_the_title()]);
+                    ?>
 
-                <div>
-                    Em <?php the_date() ?> por <?php the_author_posts_link() ?>.<br>
-                    Categorias: <?php the_category(', ') ?>.
-                </div>
+                    <h3><a href="<?php the_permalink(); ?>"><?php the_title() ?></a></h3>
 
-                <div>
+                    <div>
+                        Em <?php the_date() ?> por <?php the_author_posts_link() ?>.<br>
+                        Categorias: <?php the_category(', ') ?>.
+                    </div>
+
                     <?php the_excerpt() ?>
+
                 </div>
+
         <?php
             endwhile;
 

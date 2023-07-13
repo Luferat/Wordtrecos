@@ -20,9 +20,9 @@ $post_count = $wp_query->found_posts;
             <?php while (have_posts()) :
                 the_post(); ?>
 
-                <?php if (has_post_thumbnail()) {
-                    the_post_thumbnail();
-                } ?>
+                <?php if (has_post_thumbnail())
+                    the_post_thumbnail('thumbnail', ["alt" => get_the_title()]);
+                ?>
 
                 <h3><a href="<?php the_permalink(); ?>"><?php the_title() ?></a></h3>
 

@@ -14,7 +14,7 @@
     <div id="wrap">
         <header>
             <a href="<?php echo esc_url(home_url('/')) ?>">
-                <img style="width:80px" src="<?php echo get_template_directory_uri() ?>/assets/frontendeiroslogo.png" alt="Logotipo de <?php bloginfo('name') ?>">
+                <img src="<?php echo get_template_directory_uri() ?>/assets/frontendeiroslogo.png" alt="Logotipo de <?php bloginfo('name') ?>">
                 <h1><?php bloginfo('name') ?></h1>
                 <small><?php bloginfo('description') ?></small>
             </a>
