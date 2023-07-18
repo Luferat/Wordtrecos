@@ -69,6 +69,16 @@
             ?>
         </ul>
 
+        <h3>Comentários</h3>
+        <?php view_recent_comments(5) ?>
+
+        <?php if (function_exists('wpp_get_mostpopular')) : ?>
+            <h3>Mais Populares</h3>
+            <ul>
+                <?php wpp_get_mostpopular('limit=5&post_type=post&range=all&order_by=views&thumbnail_width=100&thumbnail_height=100&stats_comments=0&stats_views=1&stats_author=0&stats_date=0&post_html=<li>{thumb} <a href="{url}">{text_title}</a></li>'); ?>
+            </ul>
+        <?php endif; ?>
+
         <?php dynamic_sidebar('home_aside_1'); ?>
 
     </aside>
