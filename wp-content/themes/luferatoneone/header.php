@@ -18,8 +18,8 @@
                 <h1><?php bloginfo('name') ?></h1>
                 <small><?php bloginfo('description') ?></small>
             </a>
-            <p><?php get_search_form(array('placeholder' => 'Procurar...')); ?></p>
+            <p><?php get_search_form(['placeholder' => 'Procurar...']); ?></p>
         </header>
         <nav>
-            <?php wp_nav_menu(array('container' => false)) ?>
+            <?php wp_nav_menu(['container' => false]) ?>
         </nav>
