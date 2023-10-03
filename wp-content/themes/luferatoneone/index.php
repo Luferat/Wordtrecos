@@ -1,5 +1,6 @@
-<!--
-    Exibe todos os posts do blog.
+<!-- 
+  index.php
+  Exibe todos os posts do blog. 
 -->
 
 <?php get_header() ?>
@@ -7,20 +8,23 @@
 <main>
     <section>
         <?php
-        $paged = (get_query_var('paged')) ? get_query_var('paged') : 1; // Obtém o número da página atual
+        // Obtém o número da página atual.
+        $paged = (get_query_var('paged')) ? get_query_var('paged') : 1; 
 
-        $args = array(
-            'post_type' => 'post',
-            'paged' => $paged
-        );
-        $recent_posts = new WP_Query($args);
+        // Obtém os posts mais recentes e paginados.
+        $recent_posts = new WP_Query(['post_type' => 'post', 'paged' => $paged]);
+
+        // Se existem posts.
         if ($recent_posts->have_posts()) :
+
+            // Loop dos posts.
             while ($recent_posts->have_posts()) :
                 $recent_posts->the_post();
         ?>
 
                 <div id="post-<?php echo get_the_ID() ?>">
                     <?php if (has_post_thumbnail())
+                        // Se o post tem thumbnail, exibe-a.
                         the_post_thumbnail('thumbnail', ["alt" => get_the_title()]);
                     ?>
 
@@ -39,10 +43,7 @@
             endwhile;
 
             // Paginação
-            the_posts_pagination(array(
-                'prev_text' => 'Anterior',
-                'next_text' => 'Próximo'
-            ));
+            the_posts_pagination(['prev_text' => 'Anterior', 'next_text' => 'Próximo']);
 
         endif;
         wp_reset_postdata();
