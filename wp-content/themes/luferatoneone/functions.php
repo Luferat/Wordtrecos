@@ -1,11 +1,6 @@
 <?php
 
-add_theme_support('post-thumbnails', array(
-    'post',
-    'page',
-    'custom-post-type-name',
-));
-
+// Apenas para debugs.
 function debug($data)
 {
     echo '<pre>';
@@ -13,10 +8,14 @@ function debug($data)
     echo '</pre>';
 }
 
-/**
- * Registrando slots de widgets.
- *
- */
+// Adiciona suporte para thumbnais nos posts e páginas do tema.
+add_theme_support('post-thumbnails', array(
+    'post',
+    'page',
+    'custom-post-type-name',
+));
+
+// Registrando slots de widgets.
 function arphabet_widgets_init()
 {
     register_sidebar(array(
@@ -30,9 +29,7 @@ function arphabet_widgets_init()
 }
 add_action('widgets_init', 'arphabet_widgets_init');
 
-/**
- * Exibe os comentários válidos mais recentes.
- */
+// Exibe os comentários válidos mais recentes.
 function view_recent_comments($num_comments = 5)
 {
     $args = array(
@@ -56,7 +53,10 @@ function view_recent_comments($num_comments = 5)
             $comment_content = substr($comment_content, 0, 100) . '...';
         }
 
+        // Com autor do comentário. Comente se não for usar e descomente o 'echo' abaixo.
         // echo '<p><a href="' . $comment_permalink . '">' . get_comment_author($comment->comment_ID) . ' disse: ' . $comment_content . '</a></p>';
+
+        // Sem autor do comentário. Comente se não for usar e descomente o 'echo' acima.
         echo '<p><a href="' . $comment_permalink . '">' . $comment_content . '</a></p>';
     }
 }
